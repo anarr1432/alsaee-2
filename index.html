@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقرير برنامج إدارة وتنمية الموارد المالية | جمعية الساعي على الأرملة</title>
+    
+    <!-- Google Fonts: Cairo & Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        saee: {
+                            50: '#f0fdf9',
+                            100: '#ccfbf1',
+                            500: '#0d9488',
+                            600: '#0d786e',
+                            700: '#0f6259',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        },
+                        zad: {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                        },
+                        navy: {
+                            800: '#0f172a',
+                            900: '#020617',
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        tajawal: ['Tajawal', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Tajawal', 'Cairo', sans-serif;
+        }
+
+        /* Glassmorphism styling */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Hero backdrop texture gradient overlay */
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(13, 120, 110, 0.85) 50%, rgba(15, 23, 42, 0.95) 100%),
+                        url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Scroll progress bar */
+        #progress-bar {
+            width: 0%;
+            transition: width 0.1s ease-out;
+        }
+
+        /* Timeline active card glow */
+        .timeline-card-active {
+            border-color: #0d9488;
+            box-shadow: 0 10px 25px -5px rgba(13, 148, 136, 0.25);
+        }
+
+        /* Print styles optimization */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .glass-card {
+                background: white !important;
+                border: 1px solid #ddd !important;
+                box-shadow: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+    <!-- Reading Progress Bar -->
+    <div class="fixed top-0 left-0 right-0 h-1 bg-slate-200 dark:bg-slate-800 z-50 no-print">
+        <div id="progress-bar" class="h-full bg-gradient-to-r from-saee-500 to-amber-500"></div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="fixed top-1 left-0 right-0 z-40 px-4 py-2 no-print transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto glass-card rounded-2xl px-4 py-2.5 shadow-lg flex items-center justify-between">
+            
+            <!-- Association Logos / Branding -->
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <a href="#hero" class="flex items-center gap-3">
+                    <img src="https://raw.githubusercontent.com/anarr1432/alsaee-website/main/logo.png" alt="شعار جمعية الساعي" class="h-10 w-auto object-contain drop-shadow" onerror="handleLogoError(this)">
+                    <span class="text-xs md:text-sm font-bold text-slate-700 dark:text-slate-200 border-r border-slate-300 dark:border-slate-700 pr-3 hidden sm:block">
+                        جمعية الساعي على الأرملة
+                    </span>
+                </a>
+            </div>
+
+            <!-- Navigation Links Desktop -->
+            <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-sm font-medium">
+                <a href="#hero" class="px-3 py-1.5 rounded-lg hover:bg-saee-50 dark:hover:bg-slate-800 hover:text-saee-600 transition">الرئيسية</a>
+                <a href="#about" class="px-3 py-1.5 rounded-lg hover:bg-saee-50 dark:hover:bg-slate-800 hover:text-saee-600 transition">عن البرنامج</a>
+                <a href="#timeline" class="px-3 py-1.5 rounded-lg hover:bg-saee-50 dark:hover:bg-slate-800 hover:text-saee-600 transition">الرحلة (3 أيام)</a>
+                <a href="#learnings" class="px-3 py-1.5 rounded-lg hover:bg-saee-50 dark:hover:bg-slate-800 hover:text-saee-600 transition">الحصيلة</a>
+                <a href="#impact" class="px-3 py-1.5 rounded-lg hover:bg-saee-50 dark:hover:bg-slate-800 hover:text-saee-600 transition">القيمة المضافة</a>
+                <a href="#recommendations" class="px-3 py-1.5 rounded-lg hover:bg-saee-50 dark:hover:bg-slate-800 hover:text-saee-600 transition">التوصيات</a>
+                <a href="#thanks" class="px-3 py-1.5 rounded-lg hover:bg-saee-50 dark:hover:bg-slate-800 hover:text-saee-600 transition">شكر وتقدير</a>
+            </nav>
+
+            <!-- Actions Controls -->
+            <div class="flex items-center gap-2">
+                <!-- Toggle Dark Mode -->
+                <button id="theme-toggle" class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition" title="تبديل المظهر">
+                    <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+                    <i class="fa-solid fa-sun hidden dark:block text-lg text-amber-400"></i>
+                </button>
+
+                <!-- Full Report Scroll CTA -->
+                <a href="#about" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-saee-600 text-white font-semibold text-xs md:text-sm hover:bg-saee-700 transition shadow-md hover:shadow-lg">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>استعراض التقرير</span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden max-w-7xl mx-auto mt-2 glass-card rounded-2xl p-4 shadow-xl border border-slate-200 dark:border-slate-800">
+            <div class="flex flex-col space-y-2 font-medium">
+                <a href="#hero" class="mobile-link px-3 py-2 rounded-lg hover:bg-saee-50 dark:hover:bg-slate-800">الرئيسية</a>
+                <a href="#about" class="mobile-link px-3 py-2 rounded-lg hover:bg-saee-50 dark:hover:bg-slate-800">عن البرنامج</a>
+                <a href="#timeline" class="mobile-link px-3 py-2 rounded-lg hover:bg-saee-50 dark:hover:bg-slate-800">الرحلة التدريبية</a>
+                <a href="#learnings" class="mobile-link px-3 py-2 rounded-lg hover:bg-saee-50 dark:hover:bg-slate-800">حصيلة البرنامج</a>
+                <a href="#impact" class="mobile-link px-3 py-2 rounded-lg hover:bg-saee-50 dark:hover:bg-slate-800">القيمة المضافة لجمعية الساعي</a>
+                <a href="#outputs" class="mobile-link px-3 py-2 rounded-lg hover:bg-saee-50 dark:hover:bg-slate-800">أهم المخرجات والأرقام</a>
+                <a href="#recommendations" class="mobile-link px-3 py-2 rounded-lg hover:bg-saee-50 dark:hover:bg-slate-800">التوصيات المستقبليّة</a>
+                <a href="#thanks" class="mobile-link px-3 py-2 rounded-lg hover:bg-saee-50 dark:hover:bg-slate-800">شكر وتقدير</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION 1: COVER / HERO -->
+    <section id="hero" class="relative min-h-screen hero-bg flex items-center justify-center pt-24 pb-16 px-4 text-white overflow-hidden">
+        <!-- Floating Ambient Background Orbs -->
+        <div class="absolute top-1/4 right-10 w-96 h-96 bg-saee-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 left-10 w-80 h-80 bg-amber-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-5xl mx-auto text-center z-10 space-y-8">
+            
+            <!-- Dual Organizational Logos Badge -->
+            <div class="inline-flex flex-wrap items-center justify-center gap-4 sm:gap-8 px-6 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl">
+                <!-- Al-Saee Association -->
+                <div class="flex items-center gap-3">
+                    <img src="https://raw.githubusercontent.com/anarr1432/alsaee-website/main/logo.png" alt="جمعية الساعي" class="h-12 w-auto object-contain bg-white/90 p-1 rounded-lg shadow" onerror="handleLogoError(this)">
+                    <span class="text-sm md:text-base font-bold text-slate-100">جمعية الساعي على الأرملة</span>
+                </div>
+
+                <div class="text-amber-400 font-extrabold text-xl px-1">×</div>
+
+                <!-- Al-Zad Association -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-600/90 text-white flex items-center justify-center font-bold text-lg shadow border border-emerald-400">
+                        زاد
+                    </div>
+                    <span class="text-sm md:text-base font-bold text-slate-100">جمعية الزاد الخيرية ببريدة</span>
+                </div>
+            </div>
+
+            <!-- Hero Main Titles -->
+            <div class="space-y-4">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-saee-500/30 text-emerald-200 border border-emerald-400/30 text-xs sm:text-sm font-semibold tracking-wide">
+                    <i class="fa-solid fa-award ml-1 text-amber-400"></i> تقرير مشاركة موظف – القطاع غير الربحي
+                </span>
+                
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black leading-tight text-white drop-shadow-md">
+                    تقرير برنامج إدارة وتنمية الموارد المالية
+                </h1>
+
+                <p class="text-base sm:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed font-light">
+                    رحلة تدريبية وتطبيقية مكثفة لتطوير مهارات تنمية الموارد المالية والتسويق الخيري وإدارة المنح والمشاريع
+                </p>
+            </div>
+
+            <!-- Key Pill Attributes Badge -->
+            <div class="pt-4">
+                <div class="inline-flex flex-wrap items-center justify-center gap-3 sm:gap-6 px-6 py-3.5 rounded-2xl bg-slate-900/60 border border-slate-700/60 backdrop-blur-md text-slate-200 text-xs sm:text-sm font-semibold">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-days text-amber-400"></i>
+                        <span>3 أيام تدريبية</span>
+                    </div>
+                    <span class="text-slate-600 hidden sm:inline">•</span>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-brain text-emerald-400"></i>
+                        <span>معرفة مستدامة</span>
+                    </div>
+                    <span class="text-slate-600 hidden sm:inline">•</span>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-laptop-code text-cyan-400"></i>
+                        <span>تطبيق عملي</span>
+                    </div>
+                    <span class="text-slate-600 hidden sm:inline">•</span>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-chart-line text-amber-400"></i>
+                        <span>أثر مؤسسي</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Scroll Trigger -->
+            <div class="pt-6">
+                <a href="#about" class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-saee-500 to-teal-600 hover:from-saee-600 hover:to-teal-700 text-white font-bold text-base shadow-xl hover:shadow-saee-500/20 transform hover:-translate-y-1 transition-all duration-300">
+                    <span>استعراض التقرير التفاعلي</span>
+                    <i class="fa-solid fa-circle-arrow-down text-lg animate-bounce"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 2: ABOUT PROGRAM -->
+    <section id="about" class="py-20 px-4 max-w-6xl mx-auto">
+        <div class="glass-card rounded-3xl p-8 md:p-12 shadow-xl border border-slate-200 dark:border-slate-800 relative overflow-hidden">
+            <!-- Decorative Accent Circle -->
+            <div class="absolute -top-12 -left-12 w-40 h-40 bg-saee-500/10 rounded-full blur-2xl"></div>
+            
+            <div class="relative z-10 grid md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-4 text-center md:text-right border-b md:border-b-0 md:border-l border-slate-200 dark:border-slate-700 pb-6 md:pb-0 md:pl-8">
+                    <span class="text-saee-600 dark:text-saee-500 font-bold text-sm tracking-wider uppercase block mb-2">
+                        <i class="fa-solid fa-circle-info ml-1"></i> التعريف بالمبادرة
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+                        عن البرنامج التدريبي
+                    </h2>
+                    <div class="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 text-xs font-semibold">
+                        <i class="fa-solid fa-location-dot"></i> جمعية الزاد الخيرية ببريدة
+                    </div>
+                </div>
+
+                <div class="md:col-span-8 space-y-4 text-slate-700 dark:text-slate-300 text-base md:text-lg leading-relaxed">
+                    <p>
+                        برنامج تدريبي تطبيقي يهدف إلى تطوير مهارات العاملين في القطاع غير الربحي في مجالات <strong class="text-saee-700 dark:text-saee-500">تنمية الموارد المالية</strong>، وإدارة المانحين، والتسويق الخيري، وكتابة المقترحات، وإدارة المشاريع والتقارير.
+                    </p>
+                    <p class="bg-slate-100 dark:bg-slate-800/60 p-4 rounded-2xl border-r-4 border-saee-500 text-sm md:text-base">
+                        ركز البرنامج على نقل الخبرات العملية والتجارب الواقعية المطبقة في <strong class="text-slate-900 dark:text-white">جمعية الزاد الخيرية</strong>، وربط المعرفة التدريبية بالتطبيق العملي والاستفادة منها في تطوير العمل المؤسسي والمالي داخل <strong class="text-slate-900 dark:text-white">جمعية الساعي على الأرملة بمحافظة البكيرية</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: THREE DAYS TIMELINE -->
+    <section id="timeline" class="py-20 bg-slate-100/70 dark:bg-slate-800/40 border-y border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="px-3 py-1 rounded-full bg-saee-100 dark:bg-saee-950 text-saee-700 dark:text-saee-300 text-xs font-bold">
+                    مسار التدريب اليومي
+                </span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">
+                    رحلة الأيام الثلاثة
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base">
+                    استعراض تفاعلي للمحاور والمعارف والمهارات التي تم تناولها خلال أيام البرنامج الثلاثة
+                </p>
+            </div>
+
+            <!-- Tab Navigation for Days (Interactive Switcher) -->
+            <div class="flex justify-center mb-12">
+                <div class="inline-flex p-1.5 rounded-2xl bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 space-x-1 space-x-reverse" id="timeline-tabs">
+                    <button onclick="switchDay(1)" id="tab-day-1" class="day-tab px-5 py-3 rounded-xl font-bold text-sm md:text-base transition-all duration-300 bg-saee-600 text-white shadow-md">
+                        <i class="fa-solid fa-calendar-day ml-2"></i>اليوم الأول
+                    </button>
+                    <button onclick="switchDay(2)" id="tab-day-2" class="day-tab px-5 py-3 rounded-xl font-bold text-sm md:text-base text-slate-600 dark:text-slate-300 hover:text-saee-600 transition-all duration-300">
+                        <i class="fa-solid fa-calendar-day ml-2"></i>اليوم الثاني
+                    </button>
+                    <button onclick="switchDay(3)" id="tab-day-3" class="day-tab px-5 py-3 rounded-xl font-bold text-sm md:text-base text-slate-600 dark:text-slate-300 hover:text-saee-600 transition-all duration-300">
+                        <i class="fa-solid fa-calendar-day ml-2"></i>اليوم الثالث
+                    </button>
+                </div>
+            </div>
+
+            <!-- Timeline Content Container -->
+            <div id="timeline-content">
+
+                <!-- DAY 1 CONTENT -->
+                <div id="day-1-panel" class="day-panel block animate-fadeIn">
+                    <div class="glass-card rounded-3xl p-6 md:p-10 border border-slate-200 dark:border-slate-800 shadow-xl space-y-8">
+                        
+                        <!-- Header -->
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-700 pb-6">
+                            <div>
+                                <span class="text-saee-600 font-bold text-sm uppercase">اليوم التدريبي الأول</span>
+                                <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white mt-1">
+                                    مؤشرات الأداء وتنمية تبرعات الأفراد
+                                </h3>
+                            </div>
+                            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 text-sm font-semibold w-fit">
+                                <i class="fa-solid fa-bullseye"></i> تنمية الموارد والقياس
+                            </span>
+                        </div>
+
+                        <!-- Key Learnings Grid -->
+                        <div class="space-y-4">
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                <i class="fa-solid fa-list-check text-saee-600"></i> أبرز ما تم تعلمه وتطبيقه:
+                            </h4>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex items-start gap-3">
+                                    <i class="fa-solid fa-chart-line text-saee-500 mt-1"></i>
+                                    <span class="text-slate-700 dark:text-slate-300 text-sm md:text-base">فهم مؤشرات الأداء في القطاع غير الربحي والتحديات التشغيلية المرتبطة بها.</span>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex items-start gap-3">
+                                    <i class="fa-solid fa-user-graduate text-saee-500 mt-1"></i>
+                                    <span class="text-slate-700 dark:text-slate-300 text-sm md:text-base">أهمية قياس أثر التطوير والتدريب المستمر على كفاءة الموظفين.</span>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex items-start gap-3">
+                                    <i class="fa-solid fa-wallet text-saee-500 mt-1"></i>
+                                    <span class="text-slate-700 dark:text-slate-300 text-sm md:text-base">التعرف على مؤشرات التمويل والميزانيات ومدى تغطية الاحتياجات الضرورية للأسر.</span>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex items-start gap-3">
+                                    <i class="fa-solid fa-hands-holding-child text-saee-500 mt-1"></i>
+                                    <span class="text-slate-700 dark:text-slate-300 text-sm md:text-base">فهم مفهوم التمكين والاستغناء وتحويل المستفيد تدريجيًا إلى الاكتفاء الذاتي.</span>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex items-start gap-3">
+                                    <i class="fa-solid fa-users-viewfinder text-saee-500 mt-1"></i>
+                                    <span class="text-slate-700 dark:text-slate-300 text-sm md:text-base">التعرف على مفهوم تقسيم شرائح المتبرعين (Donor Segmentation).</span>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex items-start gap-3">
+                                    <i class="fa-solid fa-clock text-saee-500 mt-1"></i>
+                                    <span class="text-slate-700 dark:text-slate-300 text-sm md:text-base">معرفة كيفية اختيار التوقيت المناسب للتواصل مع المتبرعين لضمان أعلى استجابة.</span>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex items-start gap-3">
+                                    <i class="fa-solid fa-heart-pulse text-saee-500 mt-1"></i>
+                                    <span class="text-slate-700 dark:text-slate-300 text-sm md:text-base">استخدام التسويق العاطفي وإبراز الأثر الملموس للتبرع في صياغة الرسائل.</span>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex items-start gap-3">
+                                    <i class="fa-solid fa-bolt text-saee-500 mt-1"></i>
+                                    <span class="text-slate-700 dark:text-slate-300 text-sm md:text-base">التعرف على العوامل التي تساعد على سرعة إغلاق الفرص والمشاريع التمويلية.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Top Acquired Skill Card -->
+                        <div class="p-6 rounded-2xl bg-gradient-to-r from-saee-800 to-teal-900 text-white shadow-lg space-y-2">
+                            <span class="text-amber-300 font-bold text-xs uppercase tracking-wider flex items-center gap-2">
+                                <i class="fa-solid fa-star"></i> أبرز مهارة مكتسبة في اليوم الأول
+                            </span>
+                            <p class="text-lg md:text-xl font-bold leading-relaxed">
+                                "فهم المتبرع وصياغة الفرصة التمويلية بطريقة تزيد من احتمالية التفاعل والدعم."
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- DAY 2 CONTENT -->
+                <div id="day-2-panel" class="day-panel hidden animate-fadeIn">
+                    <div class="glass-card rounded-3xl p-6 md:p-10 border border-slate-200 dark:border-slate-800 shadow-xl space-y-8">
+                        
+                        <!-- Header -->
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-700 pb-6">
+                            <div>
+                                <span class="text-saee-600 font-bold text-sm uppercase">اليوم التدريبي الثاني</span>
+                                <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white mt-1">
+                                    استراتيجيات المانحين والتسويق الخيري وكتابة المقترحات
+                                </h3>
+                            </div>
+                            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-50 dark:bg-amber-950 text-amber-700 dark:text-amber-300 text-sm font-semibold w-fit">
+                                <i class="fa-solid fa-hand-holding-dollar"></i> استراتيجيات وتسويق
+                            </span>
+                        </div>
+
+                        <!-- Key Learnings List -->
+                        <div class="space-y-6">
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                <i class="fa-solid fa-list-check text-saee-600"></i> محاور اليوم الثاني:
+                            </h4>
+
+                            <!-- Donor Categories Cards -->
+                            <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-3">
+                                <h5 class="font-bold text-slate-900 dark:text-white text-base flex items-center gap-2">
+                                    <i class="fa-solid fa-sitemap text-saee-500"></i> تصنيف أنواع المانحين وطرق العرض المناسبة:
+                                </h5>
+                                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                    <div class="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center font-semibold text-sm">
+                                        <i class="fa-solid fa-user text-saee-600 mb-1 block text-lg"></i> الأفراد
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center font-semibold text-sm">
+                                        <i class="fa-solid fa-building text-saee-600 mb-1 block text-lg"></i> الشركات
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center font-semibold text-sm">
+                                        <i class="fa-solid fa-building-columns text-saee-600 mb-1 block text-lg"></i> المؤسسات المانحة
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center font-semibold text-sm">
+                                        <i class="fa-solid fa-landmark text-saee-600 mb-1 block text-lg"></i> الجهات الحكومية
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex items-start gap-3">
+                                    <i class="fa-solid fa-handshake-angle text-saee-500 mt-1"></i>
+                                    <span class="text-slate-700 dark:text-slate-300 text-sm md:text-base">فهم مفهوم الاحتفاظ بالمانحين (Donor Retention) وبناء قاعدة من المتبرعين المتكررين.</span>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex items-start gap-3">
+                                    <i class="fa-solid fa-bullhorn text-saee-500 mt-1"></i>
+                                    <span class="text-slate-700 dark:text-slate-300 text-sm md:text-base">فهم الفرق بين التسويق التجاري والتسويق الخيري والتركيز على القضية والأثر.</span>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex items-start gap-3">
+                                    <i class="fa-solid fa-book-bookmark text-saee-500 mt-1"></i>
+                                    <span class="text-slate-700 dark:text-slate-300 text-sm md:text-base">التركيز على القصة الإنسانية وصياغتها بأسلوب مؤثر بدلاً من التركيز على المنتج فقط.</span>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex items-start gap-3">
+                                    <i class="fa-solid fa-folder-open text-saee-500 mt-1"></i>
+                                    <span class="text-slate-700 dark:text-slate-300 text-sm md:text-base">التعرف على عناصر ملف المشروع الاحترافي وصياغة الأهداف وفق معيار SMART.</span>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex items-start gap-3">
+                                    <i class="fa-solid fa-calculator text-saee-500 mt-1"></i>
+                                    <span class="text-slate-700 dark:text-slate-300 text-sm md:text-base">إعداد الميزانيات التقديرية بطريقة أكثر احترافية وشفافية.</span>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex items-start gap-3">
+                                    <i class="fa-solid fa-arrows-rotate text-saee-500 mt-1"></i>
+                                    <span class="text-slate-700 dark:text-slate-300 text-sm md:text-base">تحليل أسباب رفض المشاريع وإعادة صياغتها بما يتوافق مع متطلبات المانح.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Special Open Session Highlight Card -->
+                        <div class="p-6 md:p-8 rounded-3xl bg-gradient-to-br from-amber-500/10 via-amber-500/5 to-transparent border-2 border-amber-500/30 space-y-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center font-bold text-xl shadow-lg">
+                                    <i class="fa-solid fa-user-tie"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider block">لقاء خاص متميز</span>
+                                    <h5 class="text-xl font-extrabold text-slate-900 dark:text-white">
+                                        لقاء مفتوح مع أ.د. صالح بن عبدالله الدامغ
+                                    </h5>
+                                    <p class="text-xs text-slate-600 dark:text-slate-400">رئيس مجلس الجمعيات الأهلية بمنطقة القصيم</p>
+                                </div>
+                            </div>
+                            
+                            <div class="grid sm:grid-cols-2 gap-3 pt-2">
+                                <div class="p-3 rounded-xl bg-white/80 dark:bg-slate-900/80 border border-amber-200 dark:border-amber-900/50 text-sm font-medium flex items-center gap-2">
+                                    <i class="fa-solid fa-heart text-amber-500"></i> أهمية احتساب الأجر واستشعار أثر العمل الخيري.
+                                </div>
+                                <div class="p-3 rounded-xl bg-white/80 dark:bg-slate-900/80 border border-amber-200 dark:border-amber-900/50 text-sm font-medium flex items-center gap-2">
+                                    <i class="fa-solid fa-chart-line text-amber-500"></i> التطور المتسارع للقطاع غير الربحي بالمملكة.
+                                </div>
+                                <div class="p-3 rounded-xl bg-white/80 dark:bg-slate-900/80 border border-amber-200 dark:border-amber-900/50 text-sm font-medium flex items-center gap-2">
+                                    <i class="fa-solid fa-user-gear text-amber-500"></i> أهمية بناء الكفاءات والقيادات في القطاع.
+                                </div>
+                                <div class="p-3 rounded-xl bg-white/80 dark:bg-slate-900/80 border border-amber-200 dark:border-amber-900/50 text-sm font-medium flex items-center gap-2">
+                                    <i class="fa-solid fa-shield-halved text-amber-500"></i> تعزيز الاستقرار والاستدامة المؤسسية.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- DAY 3 CONTENT -->
+                <div id="day-3-panel" class="day-panel hidden animate-fadeIn">
+                    <div class="glass-card rounded-3xl p-6 md:p-10 border border-slate-200 dark:border-slate-800 shadow-xl space-y-8">
+                        
+                        <!-- Header -->
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-700 pb-6">
+                            <div>
+                                <span class="text-saee-600 font-bold text-sm uppercase">اليوم التدريبي الثالث</span>
+                                <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white mt-1">
+                                    إدارة المشاريع والتقارير والتعامل مع رفض المنح
+                                </h3>
+                            </div>
+                            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-50 dark:bg-purple-950 text-purple-700 dark:text-purple-300 text-sm font-semibold w-fit">
+                                <i class="fa-solid fa-file-signature"></i> تقارير وحوكمة المنح
+                            </span>
+                        </div>
+
+                        <!-- Key Learnings -->
+                        <div class="space-y-6">
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                <i class="fa-solid fa-list-check text-saee-600"></i> أبرز المعارف والممارسات المكتسبة:
+                            </h4>
+
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex items-start gap-3">
+                                    <i class="fa-solid fa-file-lines text-saee-500 mt-1"></i>
+                                    <span class="text-slate-700 dark:text-slate-300 text-sm md:text-base">الفرق الدقيق بين التقرير الدوري والمرحلي والتقرير النهائي للمشروع.</span>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex items-start gap-3">
+                                    <i class="fa-solid fa-list-progress text-saee-500 mt-1"></i>
+                                    <span class="text-slate-700 dark:text-slate-300 text-sm md:text-base">أهمية المتابعة المستمرة للمشروع ومعالجة الانحرافات قبل الإغلاق.</span>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex items-start gap-3">
+                                    <i class="fa-solid fa-box-archive text-saee-500 mt-1"></i>
+                                    <span class="text-slate-700 dark:text-slate-300 text-sm md:text-base">التعرف على الهيكلية الاحترافية لإغلاق المشاريع وتوثيقها بالكامل.</span>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex items-start gap-3">
+                                    <i class="fa-solid fa-camera text-saee-500 mt-1"></i>
+                                    <span class="text-slate-700 dark:text-slate-300 text-sm md:text-base">توثيق الأهداف، المخرجات، الميزانية، والشواهد الميدانية والأنشطة.</span>
+                                </div>
+                            </div>
+
+                            <!-- Rejection Analysis Box -->
+                            <div class="p-5 rounded-2xl bg-red-500/10 border border-red-500/20 space-y-3">
+                                <h5 class="font-bold text-red-700 dark:text-red-300 text-base flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> تحليل أسباب رفض المنح والمشاريع وكيفية معالجتها:
+                                </h5>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs md:text-sm font-medium">
+                                    <div class="p-2.5 rounded-xl bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 border border-red-200 dark:border-red-900/40">
+                                        • غموض الاحتياج المجتمعي
+                                    </div>
+                                    <div class="p-2.5 rounded-xl bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 border border-red-200 dark:border-red-900/40">
+                                        • ضعف المؤشرات والمخرجات
+                                    </div>
+                                    <div class="p-2.5 rounded-xl bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 border border-red-200 dark:border-red-900/40">
+                                        • عدم واقعية الميزانية
+                                    </div>
+                                    <div class="p-2.5 rounded-xl bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 border border-red-200 dark:border-red-900/40">
+                                        • عدم التوافق مع المانح
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Top Acquired Skill Card -->
+                        <div class="p-6 rounded-2xl bg-gradient-to-r from-purple-900 to-indigo-900 text-white shadow-lg space-y-2">
+                            <span class="text-purple-300 font-bold text-xs uppercase tracking-wider flex items-center gap-2">
+                                <i class="fa-solid fa-star"></i> أبرز مهارة مكتسبة في اليوم الثالث
+                            </span>
+                            <p class="text-lg md:text-xl font-bold leading-relaxed">
+                                "تحويل المشروع من مجرد طلب دعم إلى ملف احترافي متكامل يوضح الاحتياج والأهداف والأثر والميزانية والشواهد."
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 4: WHAT DID THE EMPLOYEE LEARN -->
+    <section id="learnings" class="py-20 px-4 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <span class="px-3 py-1 rounded-full bg-saee-100 dark:bg-saee-950 text-saee-700 dark:text-saee-300 text-xs font-bold">
+                محصلة التطوير
+            </span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">
+                حصيلة ثلاثة أيام من المعرفة والتطبيق
+            </h2>
+            <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base">
+                ستة ركائز معرفية أساسية تم استيعابها وتطبيقها خلال فترات البرنامج
+            </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Card 01 -->
+            <div class="glass-card rounded-3xl p-6 border border-slate-200 dark:border-slate-800 hover:border-saee-500 hover:shadow-xl transition-all duration-300 group">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="w-12 h-12 rounded-2xl bg-saee-500/10 text-saee-600 font-black text-xl flex items-center justify-center group-hover:bg-saee-600 group-hover:text-white transition">01</span>
+                    <i class="fa-solid fa-coins text-2xl text-slate-400 group-hover:text-saee-500 transition"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">تنمية الموارد المالية</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                    فهم أفضل وأشمل لطرق تنويع مصادر الدخل وتنمية الفرص التمويلية المستدامة للمشاريع.
+                </p>
+            </div>
+
+            <!-- Card 02 -->
+            <div class="glass-card rounded-3xl p-6 border border-slate-200 dark:border-slate-800 hover:border-saee-500 hover:shadow-xl transition-all duration-300 group">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="w-12 h-12 rounded-2xl bg-saee-500/10 text-saee-600 font-black text-xl flex items-center justify-center group-hover:bg-saee-600 group-hover:text-white transition">02</span>
+                    <i class="fa-solid fa-users text-2xl text-slate-400 group-hover:text-saee-500 transition"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">إدارة المانحين</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                    فهم أنواع المانحين المختلفة وتحديد استراتيجيات التعامل لبناء علاقات طويلة الأجل.
+                </p>
+            </div>
+
+            <!-- Card 03 -->
+            <div class="glass-card rounded-3xl p-6 border border-slate-200 dark:border-slate-800 hover:border-saee-500 hover:shadow-xl transition-all duration-300 group">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="w-12 h-12 rounded-2xl bg-saee-500/10 text-saee-600 font-black text-xl flex items-center justify-center group-hover:bg-saee-600 group-hover:text-white transition">03</span>
+                    <i class="fa-solid fa-bullhorn text-2xl text-slate-400 group-hover:text-saee-500 transition"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">التسويق الخيري</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                    تطوير القدرة على تقديم المشاريع والفرص التمويلية بصورة مؤثرة تبرز القضية والأثر الإنساني.
+                </p>
+            </div>
+
+            <!-- Card 04 -->
+            <div class="glass-card rounded-3xl p-6 border border-slate-200 dark:border-slate-800 hover:border-saee-500 hover:shadow-xl transition-all duration-300 group">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="w-12 h-12 rounded-2xl bg-saee-500/10 text-saee-600 font-black text-xl flex items-center justify-center group-hover:bg-saee-600 group-hover:text-white transition">04</span>
+                    <i class="fa-solid fa-file-pen text-2xl text-slate-400 group-hover:text-saee-500 transition"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">كتابة المشاريع</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                    تحسين وصياغة مقترحات المشاريع، الأهداف الذكية (SMART)، والميزانيات التقديرية بدقة.
+                </p>
+            </div>
+
+            <!-- Card 05 -->
+            <div class="glass-card rounded-3xl p-6 border border-slate-200 dark:border-slate-800 hover:border-saee-500 hover:shadow-xl transition-all duration-300 group">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="w-12 h-12 rounded-2xl bg-saee-500/10 text-saee-600 font-black text-xl flex items-center justify-center group-hover:bg-saee-600 group-hover:text-white transition">05</span>
+                    <i class="fa-solid fa-chart-pie text-2xl text-slate-400 group-hover:text-saee-500 transition"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">إدارة التقارير</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                    رفع جودة التقارير المرحلية والنهائية وتتبع مراحل التنفيذ الميداني والإغلاق المنظم.
+                </p>
+            </div>
+
+            <!-- Card 06 -->
+            <div class="glass-card rounded-3xl p-6 border border-slate-200 dark:border-slate-800 hover:border-saee-500 hover:shadow-xl transition-all duration-300 group">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="w-12 h-12 rounded-2xl bg-saee-500/10 text-saee-600 font-black text-xl flex items-center justify-center group-hover:bg-saee-600 group-hover:text-white transition">06</span>
+                    <i class="fa-solid fa-magnifying-glass-chart text-2xl text-slate-400 group-hover:text-saee-500 transition"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">تحليل الرفض والقبول</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                    التعرف الدقيق على الملاحظات وأسباب رفض المنح وكيفية معالجتها وإعادة تقديمها بمهنية.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 5: ADDED VALUE TO AL-SAEE ASSOCIATION -->
+    <section id="impact" class="py-20 bg-gradient-to-b from-slate-100 to-slate-200 dark:from-slate-900 dark:to-slate-950 border-y border-slate-300 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="px-3 py-1 rounded-full bg-saee-100 dark:bg-saee-950 text-saee-700 dark:text-saee-300 text-xs font-bold">
+                    الأثر التنموي
+                </span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">
+                    كيف ستنعكس هذه التجربة على جمعية الساعي؟
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base">
+                    انعكاسات عملية ومباشرة على أداء الجمعية وخدماتها الموجهة للأرامل والأسر المستفيدة
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="glass-card rounded-3xl p-6 border-r-4 border-saee-500 shadow-md space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-saee-100 dark:bg-saee-900 text-saee-600 flex items-center justify-center text-lg font-bold">
+                        <i class="fa-solid fa-folder-plus"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">تطوير ملفات المشاريع</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">
+                        الاستفادة من النماذج والممارسات المكتسبة في إعداد ملفات مشاريع أكثر احترافية وجاذبية للمانحين.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-6 border-r-4 border-emerald-500 shadow-md space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900 text-emerald-600 flex items-center justify-center text-lg font-bold">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">رفع فرص قبول المشاريع</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">
+                        تحسين صياغة الاحتياج والأهداف والمؤشرات بما يتوافق بدقة مع معايير ومتطلبات الجهات المانحة.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-6 border-r-4 border-teal-500 shadow-md space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-900 text-teal-600 flex items-center justify-center text-lg font-bold">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">تطوير إدارة المانحين</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">
+                        بناء أساليب وقنوات أكثر فاعلية للتواصل المستمر مع المانحين والشركاء والمحافظة عليهم.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-6 border-r-4 border-amber-500 shadow-md space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900 text-amber-600 flex items-center justify-center text-lg font-bold">
+                        <i class="fa-solid fa-file-shield"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">رفع جودة التقارير</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">
+                        تطبيق هيكلية ومستندات قياسية احترافية في تقارير المتابعة والإغلاق للمشاريع الممولة.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-6 border-r-4 border-cyan-500 shadow-md space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-100 dark:bg-cyan-900 text-cyan-600 flex items-center justify-center text-lg font-bold">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">تنمية تبرعات الأفراد</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">
+                        الاستفادة المباشرة من ممارسات التسويق الإلكتروني وتقسيم شرائح المتبرعين وتنسيق حملات الاستقطاب.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-6 border-r-4 border-purple-500 shadow-md space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900 text-purple-600 flex items-center justify-center text-lg font-bold">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">تعزيز الأثر والاستدامة</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">
+                        ربط الدعم المالي والمنح بالنتائج والأثر الملموس لتحقيق استدامة مالية واجتماعية للجمعية.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 6: KEY OUTPUTS & METRICS -->
+    <section id="outputs" class="py-20 px-4 max-w-7xl mx-auto">
+        <div class="glass-card rounded-3xl p-8 md:p-12 border border-slate-200 dark:border-slate-800 shadow-2xl relative overflow-hidden text-center space-y-12">
+            
+            <div class="space-y-3 max-w-2xl mx-auto">
+                <span class="px-3 py-1 rounded-full bg-saee-100 dark:bg-saee-950 text-saee-700 dark:text-saee-300 text-xs font-bold">
+                    أرقام البرنامج
+                </span>
+                <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">أهم مخرجات المشاركة</h2>
+            </div>
+
+            <!-- Number Counters Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+                    <div class="text-4xl md:text-5xl font-black text-saee-600 dark:text-saee-500 counter" data-target="3">0</div>
+                    <div class="text-sm md:text-base font-bold text-slate-800 dark:text-slate-200">أيام تدريبية</div>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+                    <div class="text-4xl md:text-5xl font-black text-amber-500 counter" data-target="3">0</div>
+                    <div class="text-sm md:text-base font-bold text-slate-800 dark:text-slate-200">محاور رئيسية</div>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+                    <div class="text-4xl md:text-5xl font-black text-emerald-600 dark:text-emerald-400 counter" data-target="6">0</div>
+                    <div class="text-sm md:text-base font-bold text-slate-800 dark:text-slate-200">+ مهارات مكتسبة</div>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+                    <div class="text-4xl md:text-5xl font-black text-cyan-600 dark:text-cyan-400 counter" data-target="2">0</div>
+                    <div class="text-sm md:text-base font-bold text-slate-800 dark:text-slate-200">جهات مشاركة</div>
+                </div>
+
+            </div>
+
+            <!-- Motivational Banner -->
+            <div class="p-6 rounded-2xl bg-gradient-to-r from-saee-600 to-teal-700 text-white font-extrabold text-lg md:text-2xl shadow-lg">
+                <i class="fa-solid fa-quote-right opacity-40 ml-2"></i>
+                <span>من المعرفة إلى التطبيق... ومن التدريب إلى الأثر.</span>
+                <i class="fa-solid fa-quote-left opacity-40 mr-2"></i>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 7: RECOMMENDATIONS -->
+    <section id="recommendations" class="py-20 bg-slate-100/80 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="px-3 py-1 rounded-full bg-saee-100 dark:bg-saee-950 text-saee-700 dark:text-saee-300 text-xs font-bold">
+                    خارطة العمل المستقبلي
+                </span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">
+                    توصيات قابلة للتطبيق في جمعية الساعي
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base">
+                    خطوات عمل مقترحة لنقل وتوطين المعرفة في بيئة العمل الداخلي
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                <!-- Recommendation Item 1 -->
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3 flex flex-col justify-between hover:shadow-md transition">
+                    <div class="flex items-center gap-3 text-saee-600">
+                        <span class="w-8 h-8 rounded-lg bg-saee-50 dark:bg-saee-950 font-bold text-sm flex items-center justify-center border border-saee-200 dark:border-saee-800">1</span>
+                        <i class="fa-solid fa-gears text-lg"></i>
+                    </div>
+                    <p class="text-slate-800 dark:text-slate-200 text-sm font-semibold leading-relaxed">
+                        تطوير آلية موحدة وموثقة لإعداد وإغلاق المشاريع داخل الجمعية.
+                    </p>
+                </div>
+
+                <!-- Recommendation Item 2 -->
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3 flex flex-col justify-between hover:shadow-md transition">
+                    <div class="flex items-center gap-3 text-saee-600">
+                        <span class="w-8 h-8 rounded-lg bg-saee-50 dark:bg-saee-950 font-bold text-sm flex items-center justify-center border border-saee-200 dark:border-saee-800">2</span>
+                        <i class="fa-solid fa-file-pen text-lg"></i>
+                    </div>
+                    <p class="text-slate-800 dark:text-slate-200 text-sm font-semibold leading-relaxed">
+                        تحسين واستكمال ملفات المشاريع المقدمة للمؤسسات المانحة.
+                    </p>
+                </div>
+
+                <!-- Recommendation Item 3 -->
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3 flex flex-col justify-between hover:shadow-md transition">
+                    <div class="flex items-center gap-3 text-saee-600">
+                        <span class="w-8 h-8 rounded-lg bg-saee-50 dark:bg-saee-950 font-bold text-sm flex items-center justify-center border border-saee-200 dark:border-saee-800">3</span>
+                        <i class="fa-solid fa-chart-line text-lg"></i>
+                    </div>
+                    <p class="text-slate-800 dark:text-slate-200 text-sm font-semibold leading-relaxed">
+                        اعتماد مؤشرات أداء واضحة لقياس أثر المشاريع على مستفيدي الجمعية.
+                    </p>
+                </div>
+
+                <!-- Recommendation Item 4 -->
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3 flex flex-col justify-between hover:shadow-md transition">
+                    <div class="flex items-center gap-3 text-saee-600">
+                        <span class="w-8 h-8 rounded-lg bg-saee-50 dark:bg-saee-950 font-bold text-sm flex items-center justify-center border border-saee-200 dark:border-saee-800">4</span>
+                        <i class="fa-solid fa-comments text-lg"></i>
+                    </div>
+                    <p class="text-slate-800 dark:text-slate-200 text-sm font-semibold leading-relaxed">
+                        تطوير أساليب وقنوات التواصل والتفاعل المستمر مع المانحين.
+                    </p>
+                </div>
+
+                <!-- Recommendation Item 5 -->
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3 flex flex-col justify-between hover:shadow-md transition">
+                    <div class="flex items-center gap-3 text-saee-600">
+                        <span class="w-8 h-8 rounded-lg bg-saee-50 dark:bg-saee-950 font-bold text-sm flex items-center justify-center border border-saee-200 dark:border-saee-800">5</span>
+                        <i class="fa-solid fa-users text-lg"></i>
+                    </div>
+                    <p class="text-slate-800 dark:text-slate-200 text-sm font-semibold leading-relaxed">
+                        دراسة التوسع والتنويع في تبرعات ومنح الأفراد الداعمين.
+                    </p>
+                </div>
+
+                <!-- Recommendation Item 6 -->
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3 flex flex-col justify-between hover:shadow-md transition">
+                    <div class="flex items-center gap-3 text-saee-600">
+                        <span class="w-8 h-8 rounded-lg bg-saee-50 dark:bg-saee-950 font-bold text-sm flex items-center justify-center border border-saee-200 dark:border-saee-800">6</span>
+                        <i class="fa-solid fa-globe text-lg"></i>
+                    </div>
+                    <p class="text-slate-800 dark:text-slate-200 text-sm font-semibold leading-relaxed">
+                        تطوير التسويق الإلكتروني للفرص والمشاريع التنموية.
+                    </p>
+                </div>
+
+                <!-- Recommendation Item 7 -->
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3 flex flex-col justify-between hover:shadow-md transition">
+                    <div class="flex items-center gap-3 text-saee-600">
+                        <span class="w-8 h-8 rounded-lg bg-saee-50 dark:bg-saee-950 font-bold text-sm flex items-center justify-center border border-saee-200 dark:border-saee-800">7</span>
+                        <i class="fa-solid fa-book text-lg"></i>
+                    </div>
+                    <p class="text-slate-800 dark:text-slate-200 text-sm font-semibold leading-relaxed">
+                        الاستفادة الكاملة من الدليل التدريبي والنماذج العملية المكتسبة.
+                    </p>
+                </div>
+
+                <!-- Recommendation Item 8 -->
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3 flex flex-col justify-between hover:shadow-md transition">
+                    <div class="flex items-center gap-3 text-saee-600">
+                        <span class="w-8 h-8 rounded-lg bg-saee-50 dark:bg-saee-950 font-bold text-sm flex items-center justify-center border border-saee-200 dark:border-saee-800">8</span>
+                        <i class="fa-solid fa-chalkboard-user text-lg"></i>
+                    </div>
+                    <p class="text-slate-800 dark:text-slate-200 text-sm font-semibold leading-relaxed">
+                        دراسة إمكانية التدريب العملي الممتد في مجال تبرعات الأفراد.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 8: FINAL IMPRESSION -->
+    <section class="py-16 px-4 max-w-5xl mx-auto">
+        <div class="glass-card rounded-3xl p-8 md:p-10 border border-amber-500/30 bg-gradient-to-br from-amber-500/5 via-transparent to-saee-500/5 text-center space-y-4">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-amber-500 text-white font-bold text-xl mb-2">
+                <i class="fa-solid fa-feather-pointed"></i>
+            </div>
+            <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white">
+                رحلة تدريبية صنعت فرقًا
+            </h3>
+            <p class="text-slate-700 dark:text-slate-300 text-base md:text-lg leading-relaxed max-w-3xl mx-auto font-light">
+                أسهم البرنامج التدريبي في توسيع المعرفة العملية بمجالات تنمية الموارد المالية والتسويق الخيري وإدارة المانحين وكتابة المشاريع وإعداد التقارير، كما أتاح فرصة للاطلاع على تجارب وممارسات عملية يمكن الاستفادة منها وتطبيقها في جمعية الساعي على الأرملة.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 9: GRATITUDE & ACKNOWLEDGEMENTS -->
+    <section id="thanks" class="py-20 px-4 max-w-5xl mx-auto">
+        <div class="glass-card rounded-3xl p-8 md:p-14 border-2 border-saee-500/30 shadow-2xl space-y-8 text-center relative overflow-hidden">
+            
+            <!-- Dual Header Logos -->
+            <div class="flex flex-wrap items-center justify-center gap-8 border-b border-slate-200 dark:border-slate-800 pb-8">
+                <img src="https://raw.githubusercontent.com/anarr1432/alsaee-website/main/logo.png" alt="جمعية الساعي" class="h-16 w-auto object-contain" onerror="handleLogoError(this)">
+                <div class="text-amber-500 font-bold text-2xl">×</div>
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-xl shadow">
+                        زاد
+                    </div>
+                    <div class="text-right">
+                        <div class="font-bold text-slate-900 dark:text-white text-base">جمعية الزاد الخيرية</div>
+                        <div class="text-xs text-slate-500">بمحافظة بريدة</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Title -->
+            <div class="space-y-2">
+                <span class="text-saee-600 dark:text-saee-400 font-bold text-sm uppercase tracking-wider">رسالة وفاء وتقدير</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">شكر وتقدير</h2>
+            </div>
+
+            <!-- Message Content -->
+            <div class="space-y-6 text-slate-700 dark:text-slate-300 text-base md:text-lg leading-relaxed max-w-3xl mx-auto">
+                <p>
+                    تتقدم <strong class="text-saee-700 dark:text-saee-400">جمعية الساعي على الأرملة بمحافظة البكيرية</strong> بخالص الشكر والتقدير إلى <strong class="text-slate-900 dark:text-white">جمعية الزاد الخيرية ببريدة</strong>، على استضافة البرنامج التدريبي وإتاحة هذه التجربة التطويرية الثرية، وما قدمته من معرفة وتجارب عملية وممارسات مهنية في مجال تنمية الموارد المالية والعمل غير الربحي.
+                </p>
+
+                <p>
+                    كما نقدر حسن الاستضافة، وثراء اللقاءات، وإتاحة الفرصة للاطلاع على التجارب والخبرات التي ستسهم بإذن الله في تطوير العمل وتعزيز أثر جمعية الساعي على الأرملة.
+                </p>
+
+                <p class="font-semibold text-slate-800 dark:text-slate-200">
+                    نسأل الله أن يبارك في جهود جمعية الزاد، وأن يكتب للقائمين عليها الأجر والتوفيق، وأن تستمر مثل هذه الشراكات في صناعة أثر مستدام في القطاع غير الربحي.
+                </p>
+            </div>
+
+            <!-- Closing Tagline -->
+            <div class="pt-4">
+                <div class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 font-extrabold text-base border border-amber-500/30">
+                    <i class="fa-solid fa-infinity"></i>
+                    <span>معًا نحو أثر مستدام</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-12 px-4 border-t border-slate-800 no-print">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-right">
+            
+            <div class="space-y-2">
+                <div class="flex items-center justify-center md:justify-start gap-3">
+                    <img src="https://raw.githubusercontent.com/anarr1432/alsaee-website/main/logo.png" alt="شعار جمعية الساعي" class="h-10 w-auto bg-white/10 p-1 rounded" onerror="handleLogoError(this)">
+                    <span class="font-bold text-white text-base">جمعية الساعي على الأرملة بمحافظة البكيرية</span>
+                </div>
+                <p class="text-xs text-slate-400">
+                    تقرير برنامج إدارة وتنمية الموارد المالية | المستضيف: جمعية الزاد الخيرية ببريدة
+                </p>
+            </div>
+
+            <div class="flex items-center gap-4 text-xs">
+                <button onclick="window.print()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 transition flex items-center gap-2">
+                    <i class="fa-solid fa-print"></i> طباعة / حفظ PDF
+                </button>
+                <a href="#hero" class="p-2.5 rounded-xl bg-saee-600 text-white hover:bg-saee-700 transition" title="للأعلى">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        /* Smart Fallback Generator for Logo when URL is not reachable */
+        function handleLogoError(img) {
+            if (!img.dataset.triedLocal) {
+                img.dataset.triedLocal = "true";
+                img.src = "logo.png";
+                return;
+            }
+            img.onerror = null;
+            // SVG fallback matching the official logo colors and elements
+            const svgLogo = `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="300" height="200">
+                    <rect width="100%" height="100%" fill="#ffffff" rx="16"/>
+                    <g transform="translate(150, 75)" text-anchor="middle">
+                        <path d="M-20,10 C-35,-20 0,-50 15,-10 C25,20 -10,35 -20,10 Z" fill="none" stroke="#0284c7" stroke-width="6"/>
+                        <path d="M-10,15 C0,-30 30,-30 20,20" fill="none" stroke="#0d9488" stroke-width="6"/>
+                        <circle cx="-2" cy="-12" r="6" fill="#16a34a"/>
+                        <text y="-45" font-family="'Cairo', sans-serif" font-weight="bold" font-size="14" fill="#0f766e">جمعية</text>
+                    </g>
+                    <text x="150" y="145" font-family="'Tajawal', 'Cairo', sans-serif" font-weight="bold" font-size="18" fill="#475569" text-anchor="middle">جمعية الساعي على الأرملة</text>
+                    <text x="150" y="172" font-family="'Tajawal', 'Cairo', sans-serif" font-weight="bold" font-size="16" fill="#64748b" text-anchor="middle">بمحافظة البكيرية</text>
+                </svg>`;
+            img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgLogo);
+        }
+
+        /* Theme Switcher Toggle (Light/Dark) */
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        
+        // System preference or stored preference
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+
+        /* Mobile Navigation Toggle */
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        /* Reading Progress Indicator Bar */
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progress-bar').style.width = scrolled + '%';
+        });
+
+        /* Day Timeline Switching Logic */
+        function switchDay(dayNumber) {
+            // Hide all panels
+            document.querySelectorAll('.day-panel').forEach(panel => {
+                panel.classList.add('hidden');
+            });
+
+            // Deactivate all buttons
+            document.querySelectorAll('.day-tab').forEach(tab => {
+                tab.classList.remove('bg-saee-600', 'text-white', 'shadow-md');
+                tab.classList.add('text-slate-600', 'dark:text-slate-300');
+            });
+
+            // Activate target
+            const activePanel = document.getElementById(`day-${dayNumber}-panel`);
+            const activeTab = document.getElementById(`tab-day-${dayNumber}`);
+
+            if (activePanel && activeTab) {
+                activePanel.classList.remove('hidden');
+                activeTab.classList.add('bg-saee-600', 'text-white', 'shadow-md');
+                activeTab.classList.remove('text-slate-600', 'dark:text-slate-300');
+            }
+        }
+
+        /* Number Counters Intersection Observer Animation */
+        const counters = document.querySelectorAll('.counter');
+        let animated = false;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !animated) {
+                    animated = true;
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        let count = 0;
+                        const increment = Math.max(1, Math.ceil(target / 25));
+                        
+                        const updateCount = () => {
+                            count += increment;
+                            if (count < target) {
+                                counter.innerText = count;
+                                setTimeout(updateCount, 60);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        updateCount();
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const outputsSection = document.getElementById('outputs');
+        if (outputsSection) {
+            observer.observe(outputsSection);
+        }
+    </script>
+
+</body>
+</html>
