@@ -122,7 +122,7 @@
             <!-- Association Logos / Branding -->
             <div class="flex items-center space-x-3 space-x-reverse">
                 <a href="#hero" class="flex items-center gap-3">
-                    <img src="https://raw.githubusercontent.com/anarr1432/alsaee-2/main/logo.png" alt="شعار جمعية الساعي" class="h-10 w-auto object-contain drop-shadow" onerror="handleLogoError(this)">
+                    <img src="logo.png" alt="شعار جمعية الساعي" class="h-12 w-12 rounded-full object-cover bg-white p-1 shadow border border-slate-200 dark:border-slate-700 drop-shadow" onerror="handleLogoError(this)">
                     <span class="text-xs md:text-sm font-bold text-slate-700 dark:text-slate-200 border-r border-slate-300 dark:border-slate-700 pr-3 hidden sm:block">
                         جمعية الساعي على الأرملة
                     </span>
@@ -185,10 +185,10 @@
         <div class="max-w-5xl mx-auto text-center z-10 space-y-8">
             
             <!-- Dual Organizational Logos Badge -->
-            <div class="inline-flex flex-wrap items-center justify-center gap-4 sm:gap-8 px-6 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl">
+            <div class="inline-flex flex-wrap items-center justify-center gap-4 sm:gap-8 px-6 py-4 rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl">
                 <!-- Al-Saee Association -->
                 <div class="flex items-center gap-3">
-                    <img src="https://raw.githubusercontent.com/anarr1432/alsaee-2/main/logo.png" alt="جمعية الساعي" class="h-12 w-auto object-contain bg-white/90 p-1 rounded-lg shadow" onerror="handleLogoError(this)">
+                    <img src="logo.png" alt="جمعية الساعي" class="h-16 w-16 md:h-20 md:w-20 rounded-full object-cover bg-white p-1.5 shadow-lg border-2 border-saee-500/40" onerror="handleLogoError(this)">
                     <span class="text-sm md:text-base font-bold text-slate-100">جمعية الساعي على الأرملة</span>
                 </div>
 
@@ -196,7 +196,7 @@
 
                 <!-- Al-Zad Association -->
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-lg bg-emerald-600/90 text-white flex items-center justify-center font-bold text-lg shadow border border-emerald-400">
+                    <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-emerald-600/90 text-white flex items-center justify-center font-bold text-xl shadow-lg border-2 border-emerald-400">
                         زاد
                     </div>
                     <span class="text-sm md:text-base font-bold text-slate-100">جمعية الزاد الخيرية ببريدة</span>
@@ -930,15 +930,15 @@
             
             <!-- Dual Header Logos -->
             <div class="flex flex-wrap items-center justify-center gap-8 border-b border-slate-200 dark:border-slate-800 pb-8">
-                <img src="https://raw.githubusercontent.com/anarr1432/alsaee-2/main/logo.png" alt="جمعية الساعي" class="h-16 w-auto object-contain" onerror="handleLogoError(this)">
+                <img src="logo.png" alt="جمعية الساعي" class="h-20 w-20 md:h-24 md:w-24 rounded-full object-cover bg-white p-2 shadow-md border-2 border-saee-500/40" onerror="handleLogoError(this)">
                 <div class="text-amber-500 font-bold text-2xl">×</div>
                 <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-xl shadow">
+                    <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xl md:text-2xl shadow-md border-2 border-emerald-400">
                         زاد
                     </div>
                     <div class="text-right">
-                        <div class="font-bold text-slate-900 dark:text-white text-base">جمعية الزاد الخيرية</div>
-                        <div class="text-xs text-slate-500">بمحافظة بريدة</div>
+                        <div class="font-bold text-slate-900 dark:text-white text-base md:text-lg">جمعية الزاد الخيرية</div>
+                        <div class="text-xs md:text-sm text-slate-500">بمحافظة بريدة</div>
                     </div>
                 </div>
             </div>
@@ -981,7 +981,7 @@
             
             <div class="space-y-2">
                 <div class="flex items-center justify-center md:justify-start gap-3">
-                    <img src="https://raw.githubusercontent.com/anarr1432/alsaee-2/main/logo.png" alt="شعار جمعية الساعي" class="h-10 w-auto bg-white/10 p-1 rounded" onerror="handleLogoError(this)">
+                    <img src="logo.png" alt="شعار جمعية الساعي" class="h-12 w-12 rounded-full object-cover bg-white/10 p-1 border border-white/20" onerror="handleLogoError(this)">
                     <span class="font-bold text-white text-base">جمعية الساعي على الأرملة بمحافظة البكيرية</span>
                 </div>
                 <p class="text-xs text-slate-400">
@@ -1005,24 +1005,24 @@
     <script>
         /* Smart Fallback Generator for Logo when URL is not reachable */
         function handleLogoError(img) {
-            if (!img.dataset.triedLocal) {
-                img.dataset.triedLocal = "true";
-                img.src = "logo.png";
+            if (!img.dataset.triedGithub) {
+                img.dataset.triedGithub = "true";
+                img.src = "https://raw.githubusercontent.com/anarr1432/alsaee-2/main/logo.png";
                 return;
             }
             img.onerror = null;
-            // SVG fallback matching the official logo colors and elements
+            // SVG fallback matching the official logo colors and elements in a circular layout
             const svgLogo = `
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="300" height="200">
-                    <rect width="100%" height="100%" fill="#ffffff" rx="16"/>
-                    <g transform="translate(150, 75)" text-anchor="middle">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+                    <circle cx="100" cy="100" r="98" fill="#ffffff" stroke="#0d9488" stroke-width="4"/>
+                    <g transform="translate(100, 75)" text-anchor="middle">
                         <path d="M-20,10 C-35,-20 0,-50 15,-10 C25,20 -10,35 -20,10 Z" fill="none" stroke="#0284c7" stroke-width="6"/>
                         <path d="M-10,15 C0,-30 30,-30 20,20" fill="none" stroke="#0d9488" stroke-width="6"/>
                         <circle cx="-2" cy="-12" r="6" fill="#16a34a"/>
                         <text y="-45" font-family="'Cairo', sans-serif" font-weight="bold" font-size="14" fill="#0f766e">جمعية</text>
                     </g>
-                    <text x="150" y="145" font-family="'Tajawal', 'Cairo', sans-serif" font-weight="bold" font-size="18" fill="#475569" text-anchor="middle">جمعية الساعي على الأرملة</text>
-                    <text x="150" y="172" font-family="'Tajawal', 'Cairo', sans-serif" font-weight="bold" font-size="16" fill="#64748b" text-anchor="middle">بمحافظة البكيرية</text>
+                    <text x="100" y="140" font-family="'Tajawal', 'Cairo', sans-serif" font-weight="bold" font-size="14" fill="#475569" text-anchor="middle">جمعية الساعي</text>
+                    <text x="100" y="162" font-family="'Tajawal', 'Cairo', sans-serif" font-weight="bold" font-size="12" fill="#64748b" text-anchor="middle">على الأرملة</text>
                 </svg>`;
             img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgLogo);
         }
